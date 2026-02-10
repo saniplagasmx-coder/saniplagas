@@ -1,0 +1,20 @@
+# Ignorar dependencias de Node.js
+node_modules/
+
+# Ignorar archivos de configuración local
+.env
+
+# Ignorar logs
+*.log
+
+# Ignorar compilados de Java
+*.class
+target/
+
+# Ignorar compilados de Python
+__pycache__/
+*.pyc
+
+# Ignorar archivos de sistema
+.DS_Store
+Thumbs.db
