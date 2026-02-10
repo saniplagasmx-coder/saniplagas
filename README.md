@@ -85,12 +85,7 @@ green:   '#4ED957'  // Verde
 dark:    '#0D0D0D'  // Negro
 ```
 
-### Información de contacto
-Busca y reemplaza en los archivos:
-- **Teléfono**: `+52 (415) 123-4567`
-- **Email**: `contacto@saniplagas.mx`
-- **WhatsApp**: `524151234567` (en los links `wa.me/...`)
-- **Dirección**: `San Miguel de Allende, Gto.`
+
 
 ### Textos y contenido
 - `src/components/Hero.jsx` — Sección principal
@@ -116,7 +111,7 @@ saniplagas-landing/
 │   │   ├── Services.jsx        # 6 servicios en grid
 │   │   ├── About.jsx           # Nosotros + estadísticas
 │   │   ├── Process.jsx         # 4 pasos del proceso
-│   │   ├── Testimonials.jsx    # Carousel de testimonios
+│   │   ├── Galeria.jsx         # Galeria
 │   │   ├── Contact.jsx         # Formulario + EmailJS
 │   │   ├── Footer.jsx          # Pie de página
 │   │   └── WhatsAppFloat.jsx   # Botón WhatsApp flotante
@@ -130,23 +125,8 @@ saniplagas-landing/
 └── package.json               # Dependencias
 ```
 
----
 
-## ✨ Características
 
-- ✅ **Diseño profesional** — dirigido al mercado empresarial
-- ✅ **Totalmente responsivo** — mobile, tablet, desktop
-- ✅ **Animaciones** — reveal al hacer scroll, contador animado
-- ✅ **Navbar sticky** — cambia al hacer scroll
-- ✅ **Hero impactante** — con decoraciones y estadísticas
-- ✅ **6 servicios** — tarjetas con hover effects
-- ✅ **Sección Nosotros** — con contadores animados y certificaciones
-- ✅ **Proceso en 4 pasos** — sección dark con glassmorphism
-- ✅ **Testimonios** — carousel automático con 5 reseñas
-- ✅ **Formulario de contacto** — con EmailJS y validación
-- ✅ **WhatsApp flotante** — con tooltip animado
-- ✅ **Footer completo** — con links, redes y emergencias
-- ✅ **Colores de marca** — paleta original del logo
 
 ---
 
