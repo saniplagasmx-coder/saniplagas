@@ -181,7 +181,7 @@ const Services = () => {
               Nuestros <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-green-500">servicios</span>
             </h2>
             <p className="text-lg text-gray-500 font-body max-w-2xl mx-auto leading-relaxed">
-              Protocolos adaptados a cada necesidad, desde espacios domésticos hasta grandes instalaciones industriales en San Miguel de Allende.
+              Protocolos adaptados a cada necesidad, desde espacios domésticos hasta grandes instalaciones industriales en San Miguel de Allende, San Luis de la Paz y Dolores Hidalgo CIN.
             </p>
           </div>
 

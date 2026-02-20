@@ -12,9 +12,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+{ label: 'Inicio', href: '#inicio' },
     { label: 'Servicios', href: '#servicios' },
-    { label: 'Nosotros', href: '#nosotros' },
-    { label: 'Proceso', href: '#proceso' },
+    // { label: 'Nosotros', href: '#nosotros' },
+    // { label: 'Proceso', href: '#proceso' },
     { label: 'Galeria', href: '#galeria' },
     { label: 'Contacto', href: '#contacto' },
   ];

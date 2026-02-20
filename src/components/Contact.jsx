@@ -79,8 +79,8 @@ const Contact = () => {
               />
               <ContactInfo
                 label="Escríbenos"
-                value="atencion@saniplagas.mx"
-                href="mailto:atencion@saniplagas.mx"
+                value="contacto@saniplagas.mx"
+                href="mailto:contacto@saniplagas.mx"
                 icon={<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>}
               />
               <ContactInfo
@@ -110,7 +110,7 @@ const Contact = () => {
               
               <div className="mb-8">
                 <h3 className="font-display font-bold text-xl text-gray-900 mb-1">Solicita una visita de inspección</h3>
-                <p className="text-gray-400 text-sm">Sin compromiso · Respuesta en menos de 24 hrs</p>
+                <p className="text-gray-400 text-sm">Sin costo · Sin compromiso · Respuesta en menos de 24 hrs</p>
               </div>
 
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
@@ -169,6 +169,88 @@ const Contact = () => {
           </div>
 
         </div>
+
+        {/* ── UBICACIÓN ─────────────────────────────────────────── */}
+        <div className={`mt-20 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+
+          {/* Header */}
+          <div className="flex items-center gap-3 mb-8">
+            <span className="h-px w-10 bg-green-500" />
+            <span className="text-green-600 font-bold text-sm uppercase tracking-[0.3em]">Dónde estamos</span>
+          </div>
+
+          {/* Card contenedor */}
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+
+            {/* Mapa — full width, altura fija responsiva */}
+            <div className="w-full h-56 sm:h-72 lg:h-80">
+              <iframe
+                title="Ubicación SaniPlagas"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.5!2d-100.7449!3d20.9144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842b5b1c3a1e1e1f%3A0x1e1e1e1e1e1e1e1e!2sLib.%20Jos%C3%A9%20Manuel%20Zavala%2059%2C%20La%20Lejona%2C%2073700%20San%20Miguel%20de%20Allende%2C%20Gto.!5e0!3m2!1ses!2smx!4v1700000000000!5m2!1ses!2smx"
+                width="100%"
+                height="100%"
+                style={{ border: 0, display: 'block' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            {/* Info — debajo del mapa en móvil, 3 columnas en desktop */}
+            <div className="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-3 gap-5 items-start">
+
+              {/* Dirección */}
+              <div className="flex gap-3">
+                <div className="w-9 h-9 rounded-xl bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Dirección</p>
+                  <p className="text-gray-700 text-sm leading-snug">
+                    Lib. José Manuel Zavala 59,<br />La Lejona, San Miguel de Allende, Gto.
+                  </p>
+                </div>
+              </div>
+
+              {/* Horario */}
+              <div className="flex gap-3">
+                <div className="w-9 h-9 rounded-xl bg-green-50 flex items-center justify-center text-green-600 flex-shrink-0">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-1">Horario</p>
+                  <p className="text-gray-700 text-sm">Lun – Vie, 9:00 – 18:00 h</p>
+                  <p className="text-green-600 text-xs font-bold mt-0.5 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse inline-block" />
+                    Emergencias 24/7
+                  </p>
+                </div>
+              </div>
+
+              {/* Botón cómo llegar */}
+              <div className="flex sm:justify-end items-start">
+                <a
+                  href="https://maps.google.com/?q=Lib.+José+Manuel+Zavala+59,+La+Lejona,+73700+San+Miguel+de+Allende,+Gto."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 hover:bg-green-600 text-white text-sm font-bold rounded-xl transition-all duration-300 whitespace-nowrap shadow-sm"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  </svg>
+                  Cómo llegar
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

@@ -22,7 +22,7 @@ const Hero = () => {
   `;
 
   return (
-    <section className="relative min-h-[100vh] flex items-center bg-white overflow-hidden">
+    <section id="inicio" className="relative min-h-[100vh] flex items-center bg-white overflow-hidden">
       
       {/* IMAGEN DE FONDO CON ZOOM LENTO */}
       <div className="absolute inset-0 lg:inset-y-0 lg:left-0 lg:w-7/12 z-0 overflow-hidden">
@@ -78,7 +78,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-slate-900 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
               </button>
               
-              <button 
+              {/* <button 
                 onClick={() => scrollTo('#servicios')}
                 className="px-10 py-4 border-2 border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all flex items-center justify-center gap-2"
               >
@@ -86,7 +86,7 @@ const Hero = () => {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </button>
+              </button> */}
             </div>
 
           </div>
