@@ -2,9 +2,9 @@ import React, { useState, useRef } from 'react';
 import { useIntersection } from '../hooks/useIntersection';
 
 const EMAILJS_CONFIG = {
-  serviceId: 'YOUR_SERVICE_ID',
-  templateId: 'YOUR_TEMPLATE_ID',
-  publicKey: 'YOUR_PUBLIC_KEY',
+  serviceId: 'service_dtl47r4',
+  templateId: 'template_qfp6l9g',
+  publicKey: 'sRjSKPWdpM-5OBveJ',
 };
 
 const ContactInfo = ({ icon, label, value, href }) => (
@@ -32,19 +32,30 @@ const Contact = () => {
 
   const handleChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    try {
-      const emailjs = await import('@emailjs/browser');
-      await emailjs.sendForm(EMAILJS_CONFIG.serviceId, EMAILJS_CONFIG.templateId, formRef.current, EMAILJS_CONFIG.publicKey);
-      setStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch (err) {
-      setStatus(EMAILJS_CONFIG.serviceId === 'YOUR_SERVICE_ID' ? 'demo' : 'error');
-    }
-    setTimeout(() => setStatus('idle'), 6000);
-  };
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setStatus('sending');
+  try {
+    const emailjs = await import('@emailjs/browser');
+    await emailjs.send(
+      EMAILJS_CONFIG.serviceId,
+      EMAILJS_CONFIG.templateId,
+      {
+        name:    formData.name,
+        email:   formData.email,
+        phone:   formData.phone,
+        message: formData.message,
+      },
+      EMAILJS_CONFIG.publicKey
+    );
+    setStatus('success');
+    setFormData({ name: '', email: '', phone: '', message: '' });
+  } catch (err) {
+    console.error('EmailJS error:', err);
+    setStatus('error');
+  }
+  setTimeout(() => setStatus('idle'), 6000);
+};
 
   return (
     <section id="contacto" className="py-32 bg-[#F8FAFC] overflow-hidden" ref={ref}>
