@@ -12,7 +12,6 @@ const CountUp = ({ end, duration = 2000, suffix = '' }) => {
       setStarted(true);
       const startTime = performance.now();
       const endNum = parseInt(end);
-
       const animate = (currentTime) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
@@ -28,18 +27,37 @@ const CountUp = ({ end, duration = 2000, suffix = '' }) => {
 };
 
 const stats = [
-  { end: '500', suffix: '+', label: 'Contratos Corporativos', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-  )},
-  { end: '12', suffix: '', label: 'Años de Trayectoria', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-  )},
-  { end: '100', suffix: '%', label: 'Cumplimiento Normativo', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-  )},
-  { end: '24', suffix: '/7', label: 'Soporte Técnico', icon: (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-  )},
+  {
+    end: '100', suffix: '+', label: 'Lugares Atendidos',
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>,
+  },
+  {
+    end: '5', suffix: '', label: 'Años de Experiencia',
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>,
+  },
+  {
+    end: '100', suffix: '%', label: 'Productos Seguros',
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>,
+  },
+  {
+    end: '24', suffix: '/7', label: 'Atención de Emergencias',
+    icon: <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>,
+  },
+];
+
+const pillars = [
+  {
+    title: 'Equipo Capacitado',
+    desc: 'Nuestros técnicos cuentan con formación especializada en control de plagas residencial y manejo seguro de productos.',
+  },
+  {
+    title: 'Productos Seguros para tu Familia',
+    desc: 'Usamos sustancias de baja toxicidad, aptas para hogares con niños, adultos mayores y mascotas.',
+  },
+  {
+    title: 'Atención Personalizada',
+    desc: 'Cada casa es diferente. Evaluamos tu situación y diseñamos el tratamiento que mejor se adapta a tu hogar.',
+  },
 ];
 
 const About = () => {
@@ -49,51 +67,58 @@ const About = () => {
     <section id="nosotros" className="py-32 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
-          
-          {/* Columna Izquierda: Identidad Visual */}
+
+          {/* Columna Izquierda */}
           <div className={`relative transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-            
-            {/* Panel de Certificaciones */}
+
+            {/* Card principal — logo + frase + lo que atendemos */}
             <div className="relative rounded-2xl overflow-hidden bg-[#0f172a] p-10 shadow-2xl border border-slate-800">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary-500/10 rounded-full -mr-16 -mt-16 blur-3xl" />
-              
+              <div className="absolute top-0 right-0 w-40 h-40 bg-emerald-500/10 rounded-full -mr-16 -mt-16 blur-3xl" />
+
               <div className="relative space-y-8">
-                <div className="flex items-center gap-5">
-                   <div className="flex items-center gap-3 transition-transform duration-300 hover:scale-105">
-          <img
-            src={logo}
-            alt="SaniPlagas Logo"
-                className="h-16 md:h-20 w-auto transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
+                {/* Logo */}
+                <img src={logo} alt="SaniPlagas" className="h-16 md:h-20 w-auto" />
+
+                {/* Lo que atendemos */}
+                <div>
+                  <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.25em] mb-4">Lo que atendemos</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    {[
+                      { label: 'Cucarachas', icon: '🪳' },
+                      { label: 'Ratones y Ratas', icon: '🐭' },
+                      { label: 'Chinches', icon: '🐛' },
+                      { label: 'Hormigas', icon: '🐜' },
+                      { label: 'Moscas', icon: '🪰' },
+                      { label: 'Arañas', icon: '🕷️' },                
+                      { label: 'Palomas', icon: '🐦' },
+                      { label: 'Y mucho más...', icon: '➕' },
+                    ].map((item) => (
+                      <div key={item.label} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3">
+                        <span className="text-base">{item.icon}</span>
+                        <span className="text-slate-300 text-[11px] font-bold uppercase tracking-wide">{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {['Certificación NOM-002-STPS', 'Registro Federal COFEPRIS', 'Protocolos HACCP / AIB', 'Seguro de Responsabilidad Civil'].map((cert) => (
-                    <div key={cert} className="flex items-center gap-3 bg-white/5 border border-white/10 rounded-lg px-4 py-3">
-                      <div className="flex-shrink-0 w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-                      <span className="text-slate-300 text-[11px] font-bold uppercase tracking-wider">{cert}</span>
-                    </div>
-                  ))}
-                </div>
-
+                {/* Cita */}
                 <div className="pt-6 border-t border-slate-800">
-                  <blockquote className="text-slate-400 italic font-serif text-base leading-relaxed">
-                    "Garantizamos la inocuidad y la continuidad operativa de nuestros clientes mediante ingeniería en control de plagas."
+                  <blockquote className="text-slate-400 italic font-serif text-sm leading-relaxed">
+                    "Cuidamos tu hogar como si fuera el nuestro. Tu tranquilidad y la seguridad de tu familia es nuestra prioridad."
                   </blockquote>
-                  <div className="mt-4 flex items-center gap-3">
-                    <div className="h-px w-8 bg-primary-500" />
-                    <span className="text-primary-400 text-xs font-bold uppercase tracking-widest">Dirección General</span>
+                  <div className="mt-3 flex items-center gap-3">
+                    <div className="h-px w-8 bg-emerald-500" />
+                    <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest">SaniPlagas</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Stats Grid - Más formal y limpio */}
-            <div className="grid grid-cols-2 gap-6 mt-8">
-              {stats.map((stat, i) => (
-                <div key={stat.label} className="bg-slate-50 border border-slate-100 rounded-xl p-6 transition-all hover:bg-white hover:shadow-xl hover:border-transparent group">
-                  <div className="text-slate-400 group-hover:text-primary-600 transition-colors mb-4 italic">
+            {/* Stats */}
+            <div className="grid grid-cols-2 gap-5 mt-6">
+              {stats.map((stat) => (
+                <div key={stat.label} className="bg-slate-50 border border-slate-100 rounded-xl p-5 transition-all hover:bg-white hover:shadow-xl hover:border-transparent group">
+                  <div className="text-slate-400 group-hover:text-emerald-600 transition-colors mb-3">
                     {stat.icon}
                   </div>
                   <div className="text-3xl font-display font-bold text-slate-900">
@@ -105,39 +130,36 @@ const About = () => {
             </div>
           </div>
 
-          {/* Columna Derecha: Texto Corporativo */}
+          {/* Columna Derecha */}
           <div className={`flex flex-col justify-center transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'}`}>
             <div className="inline-flex items-center gap-3 mb-6">
-              <span className="h-px w-10 bg-primary-600"></span>
-              <span className="text-primary-600 font-bold text-sm uppercase tracking-[0.3em]">Trayectoria Institucional</span>
+              <span className="h-px w-10 bg-emerald-500" />
+              <span className="text-emerald-600 font-bold text-sm uppercase tracking-[0.3em]">Quiénes somos</span>
             </div>
 
             <h2 className="text-4xl xl:text-5xl font-display font-bold text-slate-900 leading-[1.15] mb-8">
-              Liderazgo técnico en <br />
-              <span className="text-primary-600">Gestión Integral de Plagas</span>
+              Cuidamos tu hogar <br />
+              <span className="text-emerald-600">con experiencia y cuidado</span>
             </h2>
 
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed mb-10">
+            <div className="space-y-5 text-slate-600 text-base leading-relaxed mb-10">
               <p>
-                Desde 2012, SaniPlagas ha definido los estándares de calidad en San Miguel de Allende, 
-                especializándose en entornos de alta exigencia como la industria alimentaria, 
-                hotelera y hospitalaria.
+                Desde 2021 llevamos tranquilidad a los hogares de San Miguel de Allende. 
+                Nos especializamos en resolver problemas de plagas en casas, habitaciones, 
+                comedores y espacios cotidianos.
               </p>
-              <p className="text-base text-slate-500">
-                No solo eliminamos plagas; diseñamos barreras biológicas y mecánicas que protegen 
-                sus activos, su personal y su reputación comercial ante auditorías de salubridad.
+              <p className="text-slate-500">
+                No importa si es una plaga pequeña o una infestación difícil — tenemos 
+                la experiencia, el equipo y los productos adecuados para resolverlo de forma 
+                segura y definitiva.
               </p>
             </div>
 
-            {/* Pilares de Valor */}
-            <div className="grid gap-4">
-              {[
-                { title: 'Personal Altamente Calificado', desc: 'Técnicos especializados con certificación DC-3 de competencias laborales.' },
-                { title: 'Química de Grado Farmacéutico', desc: 'Sustancias de baja toxicidad con registro EPA y COFEPRIS.' },
-                { title: 'Sistema de Reporteo Digital', desc: 'Documentación inmediata para cumplimiento de normativas ISO y distintivos H.' }
-              ].map((pill, idx) => (
-                <div key={idx} className="flex gap-5 p-5 rounded-xl transition-colors hover:bg-slate-50 group border border-transparent hover:border-slate-100">
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 text-primary-700 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-all">
+            {/* Pilares */}
+            <div className="grid gap-3">
+              {pillars.map((pill, idx) => (
+                <div key={idx} className="flex gap-4 p-5 rounded-xl transition-colors hover:bg-slate-50 group border border-transparent hover:border-slate-100">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all mt-0.5">
                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                     </svg>
@@ -148,6 +170,19 @@ const About = () => {
                   </div>
                 </div>
               ))}
+            </div>
+
+            {/* CTA */}
+            <div className="mt-10">
+              <button
+                onClick={() => document.querySelector('#contacto')?.scrollIntoView({ behavior: 'smooth' })}
+                className="inline-flex items-center gap-2 px-7 py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-200 hover:shadow-emerald-300 hover:-translate-y-0.5"
+              >
+                Solicitar inspección
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+              </button>
             </div>
           </div>
 

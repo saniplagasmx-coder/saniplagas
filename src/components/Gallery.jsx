@@ -1,131 +1,155 @@
 import React, { useState } from 'react';
 import { useIntersection } from '../hooks/useIntersection';
-
-const categories = [
-  { id: 'todos', label: 'Todos' },
-  { id: 'industrial', label: 'Sector Industrial' },
-  { id: 'comercial', label: 'Comercial/HORECA' },
-  { id: 'tecnico', label: 'Procesos Técnicos' },
-];
+import image1 from '../assets/escuela.jpg';
+import image2 from '../assets/escuelaBaños.jpg';
+import image3 from '../assets/comedor.jpeg';
+import image4 from '../assets/casaRodante.jpg';
+import image5 from '../assets/casaSala.jpg';
+import image6 from '../assets/casaPatio2.jpg';
+import image7 from '../assets/casaPatio3.jpg';
+import image8 from '../assets/casaPatio4.jpg';
 
 const images = [
   {
     id: 1,
-    category: 'industrial',
-    title: 'Control en Almacenes',
-    subtitle: 'Gestión de perímetros en centros de distribución.',
-    size: 'large', // Ocupará 2 columnas
-    url: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80',
+    title: 'Control en Escuelas',
+    subtitle: 'Sanitización y control de plagas en instituciones educativas.',
+    size: 'large',
+    url: image1,
   },
   {
     id: 2,
-    category: 'tecnico',
-    title: 'Nebulización ULV',
-    subtitle: 'Desinfección de grado hospitalario.',
+    title: 'Control en Escuelas - Baños',
+    subtitle: ' Tratamientos específicos para áreas sanitarias en escuelas.',
     size: 'small',
-    url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80',
+    url: image2,
   },
   {
     id: 3,
-    category: 'comercial',
-    title: 'Sector Restaurantero',
-    subtitle: 'Certificación de áreas de cocina (Distintivo H).',
+    title: 'Control en Escuelas - Comedor',
+    subtitle: 'Garantía de higiene en establecimientos de alimentos.',
     size: 'small',
-    url: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80',
+    url: image3,
   },
   {
     id: 4,
-    category: 'industrial',
-    title: 'Tratamiento de Silos',
-    subtitle: 'Control de plagas en granos y semillas.',
-    size: 'small',
-    url: 'https://images.unsplash.com/photo-1590644365607-1c5a519a7a37?auto=format&fit=crop&q=80',
+    title: 'Control en todo tipo de viviendas',
+    subtitle: ' Soluciones integrales para hogares y residencias.',
+    size: 'large',
+    url: image4,
   },
   {
     id: 5,
-    category: 'tecnico',
-    title: 'Inspección Termográfica',
-    subtitle: 'Detección avanzada de nidos ocultos.',
+    title: 'Control en todo tipo de viviendas',
+    subtitle: 'Sanitización y control de plagas para espacios residenciales.',
     size: 'large',
-    url: 'https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&q=80',
+    url: image5,
+  },
+  {
+    id: 6,
+    title: 'Control en todo tipo de viviendas',
+    subtitle: 'Tratamientos especializados para patios y áreas exteriores.',
+    size: 'small',
+    url: image6,
+  },
+    {
+    id: 7,
+      title: 'Control en todo tipo de viviendas',
+    subtitle: 'Tratamientos especializados para patios y áreas exteriores.',
+    size: 'small',
+    url: image7,
+  },
+    {
+    id: 8,
+     title: 'Control en todo tipo de viviendas',
+    subtitle: 'Tratamientos especializados para patios y áreas exteriores.',
+    size: 'small',
+    url: image8,
   },
 ];
 
 const Gallery = () => {
-  const [filter, setFilter] = useState('todos');
+  const [lightbox, setLightbox] = useState(null);
   const [ref, isVisible] = useIntersection();
-
-  const filteredImages = filter === 'todos' 
-    ? images 
-    : images.filter(img => img.category === filter);
 
   return (
     <section id="galeria" className="py-24 bg-slate-50" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
-        
+
         {/* Encabezado */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-primary-600 font-bold text-sm uppercase tracking-[0.3em]">Evidencia de Servicio</span>
+          <span className="text-primary-600 font-bold text-sm uppercase tracking-[0.3em]">Nuestro Trabajo</span>
           <h2 className="text-4xl font-display font-bold text-slate-900 mt-4 mb-6">
             Soluciones Especializadas en Campo
           </h2>
-          <div className="h-1 w-20 bg-primary-600 mx-auto"></div>
+          <div className="h-1 w-20 bg-primary-600 mx-auto" />
         </div>
 
-        {/* Filtros */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setFilter(cat.id)}
-              className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 border ${
-                filter === cat.id
-                  ? 'bg-slate-900 text-white border-slate-900 shadow-lg'
-                  : 'bg-white text-slate-500 border-slate-200 hover:border-primary-400 hover:text-primary-600'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Grid de Galería */}
+        {/* Grid de Galería — sin filtros */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[300px]">
-          {filteredImages.map((img) => (
+          {images.map((img, idx) => (
             <div
               key={img.id}
-              className={`group relative overflow-hidden rounded-2xl bg-slate-200 transition-all duration-700 ${
+              onClick={() => setLightbox(img)}
+              className={`group relative overflow-hidden rounded-2xl bg-slate-200 cursor-pointer transition-all duration-700 ${
                 img.size === 'large' ? 'md:col-span-2' : 'col-span-1'
               } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${idx * 100}ms` }}
             >
-              {/* Imagen de Fondo */}
               <img
                 src={img.url}
                 alt={img.title}
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
 
-              {/* Overlay Gradual */}
+              {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
-                <span className="text-primary-400 text-xs font-bold uppercase tracking-widest mb-2 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  {img.category}
-                </span>
-                <h3 className="text-white text-xl font-bold mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                <h3 className="text-white text-xl font-bold mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                   {img.title}
                 </h3>
-                <p className="text-slate-300 text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
+                <p className="text-slate-300 text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                   {img.subtitle}
                 </p>
-              </div>
-
-              {/* Badge de Categoría (Visible siempre) */}
-              <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded text-[10px] font-black uppercase text-slate-900 tracking-tighter group-hover:opacity-0 transition-opacity">
-                {img.category}
+                <span className="mt-3 inline-flex items-center gap-1 text-primary-400 text-xs font-bold uppercase tracking-widest transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-150">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+                  </svg>
+                  Ver imagen
+                </span>
               </div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Lightbox */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-[200] bg-black/90 backdrop-blur-sm flex items-center justify-center p-6"
+          onClick={() => setLightbox(null)}
+        >
+          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setLightbox(null)}
+              className="absolute -top-12 right-0 text-white/70 hover:text-white transition-colors flex items-center gap-2 text-sm font-bold"
+            >
+              Cerrar
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+            <img
+              src={lightbox.url}
+              alt={lightbox.title}
+              className="w-full rounded-2xl object-cover max-h-[80vh]"
+            />
+            <div className="mt-4">
+              <h3 className="text-white font-bold text-xl">{lightbox.title}</h3>
+              <p className="text-slate-400 text-sm mt-1">{lightbox.subtitle}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
