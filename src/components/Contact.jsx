@@ -32,7 +32,7 @@ const Contact = () => {
 
   const handleChange = (e) => setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
 
- const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
   e.preventDefault();
   setStatus('sending');
   try {
@@ -50,6 +50,18 @@ const Contact = () => {
     );
     setStatus('success');
     setFormData({ name: '', email: '', phone: '', message: '' });
+
+    // 👇 AQUÍ DISPARAMOS LA CONVERSIÓN DE GOOGLE ADS 👇
+    // Usamos el if para evitar que la página truene si el usuario tiene AdBlocker
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'conversion', {
+          'send_to': 'AW-17772616658/4ootCLenyfwbENK30ppC',
+          'value': 1.0,
+          'currency': 'MXN'
+      });
+    }
+    // 👆 TERMINA EL CÓDIGO DE GOOGLE 👆
+
   } catch (err) {
     console.error('EmailJS error:', err);
     setStatus('error');
