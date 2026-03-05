@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx react-scripts build)",
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:www.bbva.es)"
+    ]
+  }
+}
