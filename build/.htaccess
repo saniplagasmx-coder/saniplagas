@@ -1,0 +1,26 @@
+# Fallback SPA para Hostinger (LiteSpeed respeta .htaccess).
+# Sin esto, /irapuato devuelve 404 al entrar directo o al recargar,
+# porque el build de CRA solo genera index.html.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Archivos y carpetas que sí existen se sirven tal cual (JS, CSS, imágenes, sitemap...).
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Todo lo demás lo resuelve la app en el cliente.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# El HTML no se cachea para que un despliegue nuevo se vea de inmediato;
+# los assets con hash en el nombre sí pueden cachearse por mucho tiempo.
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  <FilesMatch "\.(js|css|woff2|png|jpe?g|webp|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

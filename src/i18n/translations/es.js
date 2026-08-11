@@ -23,7 +23,7 @@ const es = {
     badge: 'Experticia Técnica',
     title: 'Nuestros',
     titleHighlight: 'servicios',
-    description: 'Protocolos adaptados a cada necesidad, desde espacios domésticos hasta grandes instalaciones industriales en San Miguel de Allende, San Luis de la Paz y Dolores Hidalgo CIN.',
+    description: 'Protocolos adaptados a cada necesidad, desde espacios domésticos hasta grandes instalaciones industriales en San Miguel de Allende, Irapuato, San Luis de la Paz y Dolores Hidalgo CIN.',
     cards: [
       {
         title: 'Programas Preventivos',
@@ -69,7 +69,7 @@ const es = {
     ],
     activeLabel: 'Activo',
     trustBadgePrefix: 'Servicio disponible en',
-    trustBadgeLocations: 'San Miguel de Allende, San Luis de la Paz y Dolores Hidalgo CIN',
+    trustBadgeLocations: 'San Miguel de Allende, Irapuato, San Luis de la Paz y Dolores Hidalgo CIN',
   },
 
   gallery: {
@@ -124,6 +124,10 @@ const es = {
     location: {
       badge: 'Dónde estamos',
       mapTitle: 'Ubicación SaniPlagas',
+      branchesLabel: 'Nuestras sucursales',
+      mainBranch: 'Matriz',
+      newBranch: 'Nueva sucursal',
+      whatsappBranch: 'WhatsApp de esta sucursal',
       addressLabel: 'Dirección',
       scheduleLabel: 'Horario',
       scheduleValue: 'Todos los días, 24 horas',
@@ -132,8 +136,33 @@ const es = {
     },
   },
 
+  // Landing dedicada de la sucursal Irapuato (/irapuato), usada como destino de Google Ads.
+  irapuato: {
+    metaTitle: 'Fumigación y Control de Plagas en Irapuato | SaniPlagas',
+    metaDescription: 'Control de plagas profesional en Irapuato. Inspección sin costo, productos seguros para familia y mascotas, atención 24/7. Llámanos al 462 373 7003.',
+    badge: 'Sucursal Irapuato',
+    title: 'Control de plagas en',
+    titleHighlight: 'Irapuato',
+    subtitle: 'Nueva sucursal en Rincón de los Arcos. Inspección sin costo, productos de baja toxicidad y atención el mismo día.',
+    ctaPrimary: 'AGENDAR INSPECCIÓN GRATIS',
+    ctaCall: 'Llamar ahora',
+    ctaWhatsapp: 'WhatsApp',
+    trust: [
+      { title: 'Inspección sin costo', desc: 'Vamos, revisamos y te cotizamos sin compromiso.' },
+      { title: 'Atención 24/7', desc: 'Urgencias atendidas el mismo día en Irapuato y alrededores.' },
+      { title: 'Seguro para tu familia', desc: 'Productos biodegradables, aptos con niños y mascotas.' },
+      { title: 'Desde 2012', desc: 'Más de una década resolviendo plagas en el Bajío.' },
+    ],
+    servicesTitle: 'Qué resolvemos en Irapuato',
+    servicesSubtitle: 'Casas, comercios, comedores, almacenes y hoteles. Tratamiento a la medida del problema.',
+    formTitle: 'Agenda tu inspección en Irapuato',
+    formSubtitle: 'Déjanos tus datos y te contactamos el mismo día.',
+    locationTitle: 'Nuestra sucursal en Irapuato',
+    backToSite: 'Ver el sitio completo',
+  },
+
   footer: {
-    bio: 'Control profesional de plagas en San Miguel de Allende. Certificados y listos 24/7.',
+    bio: 'Control profesional de plagas en San Miguel de Allende e Irapuato. Certificados y listos 24/7.',
     navTitle: 'Navegación',
     servicios: 'Servicios',
     galeria: 'Galeria',

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLanguage } from '../i18n/LanguageContext';
 
-const WhatsAppFloat = () => {
+// `phone` permite que cada landing de sucursal use su propio WhatsApp.
+const WhatsAppFloat = ({ phone = '5214151132340' }) => {
   const [visible, setVisible] = useState(false);
   const [tooltip, setTooltip] = useState(false);
   const { t } = useLanguage();
@@ -15,7 +16,7 @@ const WhatsAppFloat = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const whatsappUrl = `https://wa.me/5214151132340?text=${encodeURIComponent(t('whatsapp.defaultMessage'))}`;
+  const whatsappUrl = `https://wa.me/${phone}?text=${encodeURIComponent(t('whatsapp.defaultMessage'))}`;
 
   return (
     <div

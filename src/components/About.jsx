@@ -147,8 +147,9 @@ const About = () => {
 
             <div className="space-y-5 text-slate-600 text-base leading-relaxed mb-10">
               <p>
-                Desde 2012 llevamos tranquilidad a los hogares de San Miguel de Allende. 
-                Nos especializamos en resolver problemas de plagas en casas, habitaciones, 
+                Desde 2012 llevamos tranquilidad a los hogares de San Miguel de Allende,
+                y ahora también a Irapuato con nuestra nueva sucursal.
+                Nos especializamos en resolver problemas de plagas en casas, habitaciones,
                 comedores y espacios cotidianos.
               </p>
               <p className="text-slate-500">

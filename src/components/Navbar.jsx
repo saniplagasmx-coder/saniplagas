@@ -3,7 +3,9 @@ import logo from '../assets/logo-sani.png';
 import { useLanguage } from '../i18n/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 
-const Navbar = () => {
+// `links` y `ctaTarget` permiten reutilizar el mismo navbar en las landings por
+// sucursal, que tienen menos secciones que la home.
+const Navbar = ({ links, ctaTarget = '#contacto' }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const { t } = useLanguage();
@@ -14,7 +16,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
+  const navLinks = links || [
     { label: t('nav.inicio'), href: '#inicio' },
     { label: t('nav.servicios'), href: '#servicios' },
     { label: t('nav.galeria'), href: '#galeria' },
@@ -66,7 +68,7 @@ const Navbar = () => {
 
         {/* CTA */}
         <button
-          onClick={() => scrollTo('#contacto')}
+          onClick={() => scrollTo(ctaTarget)}
           className={`hidden md:flex items-center gap-2 px-6 py-3 rounded-full font-black text-sm transition-all shadow-lg active:scale-95 ${
             scrolled
               ? 'bg-[#4992F2] text-white hover:bg-[#3b76c5]'
@@ -116,7 +118,7 @@ const Navbar = () => {
             <LanguageSwitcher scrolled={true} />
           </div>
           <button
-            onClick={() => scrollTo('#contacto')}
+            onClick={() => scrollTo(ctaTarget)}
             className="w-full bg-[#4992F2] text-white py-5 rounded-2xl font-black text-xl shadow-xl shadow-[#4992F2]/20 mt-4"
           >
             {t('nav.ctaMobile')}

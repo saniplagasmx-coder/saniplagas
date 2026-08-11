@@ -20,9 +20,110 @@
     <meta name="theme-color" content="#4992F2" />
     <meta
       name="description"
-      content="SaniPlagas - Fumigaciones y Control de Plagas profesional en San Miguel. Protegemos tu empresa con soluciones certificadas."
+      content="SaniPlagas - Fumigaciones y Control de Plagas profesional en San Miguel de Allende e Irapuato. Protegemos tu empresa con soluciones certificadas."
     />
     <title>SaniPlagas</title>
+
+    <!-- Datos estructurados: una entrada por sucursal para Google Business / SEO local. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://saniplagas.mx/#organization",
+            "name": "SaniPlagas",
+            "url": "https://saniplagas.mx",
+            "email": "contacto@saniplagas.mx",
+            "sameAs": ["https://www.facebook.com/share/1D3LgyQ3jv/"]
+          },
+          {
+            "@type": "PestControlService",
+            "@id": "https://saniplagas.mx/#sucursal-san-miguel",
+            "name": "SaniPlagas — San Miguel de Allende",
+            "parentOrganization": { "@id": "https://saniplagas.mx/#organization" },
+            "url": "https://saniplagas.mx/#contacto",
+            "telephone": "+52 415 113 2340",
+            "email": "contacto@saniplagas.mx",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Alfil 22, INFONAVIT Malanquin",
+              "addressLocality": "San Miguel de Allende",
+              "addressRegion": "Guanajuato",
+              "postalCode": "37755",
+              "addressCountry": "MX"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 20.908997625212116,
+              "longitude": -100.760789846738550
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "00:00",
+                "closes": "23:59"
+              }
+            ],
+            "areaServed": [
+              { "@type": "City", "name": "San Miguel de Allende" },
+              { "@type": "City", "name": "San Luis de la Paz" },
+              { "@type": "City", "name": "Dolores Hidalgo CIN" }
+            ]
+          },
+          {
+            "@type": "PestControlService",
+            "@id": "https://saniplagas.mx/#sucursal-irapuato",
+            "name": "SaniPlagas — Irapuato",
+            "parentOrganization": { "@id": "https://saniplagas.mx/#organization" },
+            "url": "https://saniplagas.mx/#contacto",
+            "telephone": "+52 462 373 7003",
+            "email": "contacto@saniplagas.mx",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Calle Arcos de Guanajuato 261, Rincón de los Arcos",
+              "addressLocality": "Irapuato",
+              "addressRegion": "Guanajuato",
+              "postalCode": "36633",
+              "addressCountry": "MX"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 20.7002207,
+              "longitude": -101.3384284
+            },
+            "openingHoursSpecification": [
+              {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                  "Sunday"
+                ],
+                "opens": "00:00",
+                "closes": "23:59"
+              }
+            ],
+            "areaServed": [{ "@type": "City", "name": "Irapuato" }]
+          }
+        ]
+      }
+    </script>
     <link rel="icon" href="/favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

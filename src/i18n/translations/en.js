@@ -23,7 +23,7 @@ const en = {
     badge: 'Technical Expertise',
     title: 'Our',
     titleHighlight: 'services',
-    description: 'Protocols tailored to every need, from residential spaces to large industrial facilities in San Miguel de Allende, San Luis de la Paz, and Dolores Hidalgo CIN.',
+    description: 'Protocols tailored to every need, from residential spaces to large industrial facilities in San Miguel de Allende, Irapuato, San Luis de la Paz, and Dolores Hidalgo CIN.',
     cards: [
       {
         title: 'Preventive Programs',
@@ -69,7 +69,7 @@ const en = {
     ],
     activeLabel: 'Active',
     trustBadgePrefix: 'Service available in',
-    trustBadgeLocations: 'San Miguel de Allende, San Luis de la Paz, and Dolores Hidalgo CIN',
+    trustBadgeLocations: 'San Miguel de Allende, Irapuato, San Luis de la Paz, and Dolores Hidalgo CIN',
   },
 
   gallery: {
@@ -124,6 +124,10 @@ const en = {
     location: {
       badge: 'Where we are',
       mapTitle: 'SaniPlagas Location',
+      branchesLabel: 'Our branches',
+      mainBranch: 'Main office',
+      newBranch: 'New branch',
+      whatsappBranch: 'WhatsApp this branch',
       addressLabel: 'Address',
       scheduleLabel: 'Schedule',
       scheduleValue: 'Every day, 24 hours',
@@ -132,8 +136,33 @@ const en = {
     },
   },
 
+  // Dedicated landing page for the Irapuato branch (/irapuato), used as a Google Ads destination.
+  irapuato: {
+    metaTitle: 'Pest Control in Irapuato | SaniPlagas',
+    metaDescription: 'Professional pest control in Irapuato. Free inspection, products safe for family and pets, 24/7 service. Call us at 462 373 7003.',
+    badge: 'Irapuato Branch',
+    title: 'Pest control in',
+    titleHighlight: 'Irapuato',
+    subtitle: 'New branch in Rincón de los Arcos. Free inspection, low-toxicity products, and same-day service.',
+    ctaPrimary: 'BOOK A FREE INSPECTION',
+    ctaCall: 'Call now',
+    ctaWhatsapp: 'WhatsApp',
+    trust: [
+      { title: 'Free inspection', desc: 'We come, assess the problem, and quote with no commitment.' },
+      { title: '24/7 service', desc: 'Emergencies handled the same day in Irapuato and nearby areas.' },
+      { title: 'Safe for your family', desc: 'Biodegradable products, safe around children and pets.' },
+      { title: 'Since 2012', desc: 'Over a decade solving pest problems in the Bajío region.' },
+    ],
+    servicesTitle: 'What we handle in Irapuato',
+    servicesSubtitle: 'Homes, shops, dining halls, warehouses, and hotels. Treatment tailored to the problem.',
+    formTitle: 'Book your inspection in Irapuato',
+    formSubtitle: 'Leave us your details and we\'ll contact you the same day.',
+    locationTitle: 'Our Irapuato branch',
+    backToSite: 'View the full site',
+  },
+
   footer: {
-    bio: 'Professional pest control in San Miguel de Allende. Certified and ready 24/7.',
+    bio: 'Professional pest control in San Miguel de Allende and Irapuato. Certified and ready 24/7.',
     navTitle: 'Navigation',
     servicios: 'Services',
     galeria: 'Gallery',

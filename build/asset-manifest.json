@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.8846eef7.css",
-    "main.js": "/static/js/main.71edefed.js",
+    "main.css": "/static/css/main.b8e0f4c8.css",
+    "main.js": "/static/js/main.f99a0662.js",
     "static/js/665.27ec91e8.chunk.js": "/static/js/665.27ec91e8.chunk.js",
     "static/media/casaRodante.jpg": "/static/media/casaRodante.b33a5a716d7f1fe7f686.jpg",
     "static/media/casaPatio3.jpg": "/static/media/casaPatio3.1e5261bb972e0a8bd59a.jpg",
@@ -14,12 +14,12 @@
     "static/media/logo-sani.png": "/static/media/logo-sani.c98e7f94b023cb16b99e.png",
     "static/media/escuelaBaños.jpg": "/static/media/escuelaBaños.29e9edad6e39a1dacb30.jpg",
     "index.html": "/index.html",
-    "main.8846eef7.css.map": "/static/css/main.8846eef7.css.map",
-    "main.71edefed.js.map": "/static/js/main.71edefed.js.map",
+    "main.b8e0f4c8.css.map": "/static/css/main.b8e0f4c8.css.map",
+    "main.f99a0662.js.map": "/static/js/main.f99a0662.js.map",
     "665.27ec91e8.chunk.js.map": "/static/js/665.27ec91e8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8846eef7.css",
-    "static/js/main.71edefed.js"
+    "static/css/main.b8e0f4c8.css",
+    "static/js/main.f99a0662.js"
   ]
 }

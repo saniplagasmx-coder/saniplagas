@@ -42,7 +42,11 @@ const sectorStyles = [
   { gradient: 'from-emerald-500 to-green-500', glow: 'shadow-emerald-500/20', num: '04' },
 ];
 
-const ServiceCard = ({ service, isVisible }) => (
+// Se exporta para que las landings por sucursal usen exactamente la misma tarjeta.
+export const buildServiceCards = (cards) =>
+  cards.map((card, i) => ({ ...card, icon: serviceIcons[i], ...serviceStyles[i] }));
+
+export const ServiceCard = ({ service, isVisible }) => (
   <article
     className={`group relative bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-400 overflow-hidden ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
@@ -78,12 +82,7 @@ const Services = () => {
   const [sectorsRef, sectorsVisible] = useIntersection({ threshold: 0.1 });
   const { t } = useLanguage();
 
-  const cards = t('services.cards');
-  const services = cards.map((card, i) => ({
-    ...card,
-    icon: serviceIcons[i],
-    ...serviceStyles[i],
-  }));
+  const services = buildServiceCards(t('services.cards'));
 
   const sectorTexts = t('services.sectors');
   const sectors = sectorTexts.map((text, i) => ({

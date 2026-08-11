@@ -1,12 +1,19 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import logo from '../assets/logo-sani.png';
 import { useLanguage } from '../i18n/LanguageContext';
+import { LOCATIONS } from '../data/locations';
 
 const CONTACT_INFO = {
-  phone: "+52 (415) 113-2340",
-  telHref: "tel:+524151132340",
   email: "contacto@saniplagas.mx",
 };
+
+// Un teléfono por sucursal; si dos sedes comparten número se muestra una sola vez.
+const BRANCH_PHONES = LOCATIONS.reduce((acc, loc) => {
+  const existing = acc.find((p) => p.phone === loc.phone);
+  if (existing) existing.cities.push(loc.shortName);
+  else acc.push({ phone: loc.phone, display: loc.phoneDisplay, cities: [loc.shortName] });
+  return acc;
+}, []);
 
 const Footer = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -101,16 +108,21 @@ const Footer = () => {
               <h4 className="text-white text-xs font-bold uppercase tracking-[0.2em] mb-5 border-l-2 border-primary-500 pl-3">
                 {t('footer.emergencyTitle')}
               </h4>
-              <a href={CONTACT_INFO.telHref} className="group flex flex-col mb-4">
-                <span className="text-green-400 font-bold text-lg flex items-center gap-2 group-hover:text-green-300 transition-colors">
-                  <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
-                  </span>
-                  {CONTACT_INFO.phone}
-                </span>
-                <span className="text-gray-500 text-[10px] uppercase tracking-wide mt-1">{t('footer.support247')}</span>
-              </a>
+              <div className="mb-4 space-y-3">
+                {BRANCH_PHONES.map((p) => (
+                  <a key={p.phone} href={`tel:${p.phone}`} className="group flex flex-col">
+                    <span className="text-green-400 font-bold text-lg flex items-center gap-2 group-hover:text-green-300 transition-colors">
+                      <span className="relative flex h-2.5 w-2.5" aria-hidden="true">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500" />
+                      </span>
+                      {p.display}
+                    </span>
+                    <span className="text-gray-500 text-[10px] uppercase tracking-wide mt-1">{p.cities.join(' · ')}</span>
+                  </a>
+                ))}
+                <p className="text-gray-500 text-[10px] uppercase tracking-wide">{t('footer.support247')}</p>
+              </div>
               <a
                 href={`mailto:${CONTACT_INFO.email}`}
                 className="text-gray-400 hover:text-white text-sm transition-colors block"
@@ -125,7 +137,7 @@ const Footer = () => {
         <div className="border-t border-white/5 py-5">
           <div className="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-gray-600 text-xs text-center sm:text-left">
-              &copy; {new Date().getFullYear()} SaniPlagas &middot; San Miguel de Allende
+              &copy; {new Date().getFullYear()} SaniPlagas &middot; {LOCATIONS.map((l) => l.city).join(' · ')}
             </p>
             <button
               onClick={() => setModalOpen(true)}
